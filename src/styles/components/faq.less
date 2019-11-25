@@ -1,0 +1,58 @@
+@import "../common/variables";
+@import "../common/mixins";
+
+.@{css-prefix} {
+
+  &-cell-box {
+    margin-bottom: .35rem;
+  }
+
+  &-cell {
+    background-color: #FFF;
+    position: relative;
+    z-index: 5;
+    &:after {
+      .bottom-line(@line-high-color);
+    }
+    a.@{css-prefix}-cell-item,
+    label.@{css-prefix}-cell-item {
+      .tap-color(#FFF, .96);
+    }
+  }
+
+  &-faq {
+    flex-direction:column;
+    display: flex;
+    position: relative;
+    padding: 0 @body-padding-vertical;
+    overflow: hidden;
+    &:not(:last-child):after {
+      margin-left: @body-padding-vertical;
+      .bottom-line(@line-color);
+    }
+  }
+
+  &-faq-item {
+    flex-direction:row;
+    color: @cell-left-color;
+    font-size: @cell-left-fontsize;
+    display: flex;
+    padding: 0.04rem 0;
+    align-items: baseline;
+  }
+  &-cell-faq-icon{
+    margin-right: 0.1rem;
+  }
+  &-cell-title {
+    padding: 0 @body-padding-vertical .1rem;
+    font-size: @cell-title-fontsize;
+    text-align: left;
+    color: @cell-title-color;
+    position: relative;
+    z-index: 1;
+    background-color: @body-bg;
+    &:after {
+      .bottom-line(@line-color, 3);
+    }
+  }
+}
