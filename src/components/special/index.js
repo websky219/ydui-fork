@@ -1,3 +1,4 @@
 import Special from "./src/special.vue";
 import specialItem from "./src/specialItem.vue";
-export { Special, specialItem }
+import SpecialPer from "./src/specialper.vue";
+export { Special, specialItem, SpecialPer };

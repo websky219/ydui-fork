@@ -7,6 +7,7 @@
       :key="index + obj.key"
       :objkey="obj.key"
       :index="index"
+      :module="module"
     ></msb-special-item>
   </yd-cell-group>
 </template>
@@ -14,6 +15,12 @@
 <script type="text/babel">
 import { CellGroup } from "../../cell/index.js";
 import specialItem from "./specialItem.vue";
+
+let mixins_ = [];
+
+if (window.perMixins) {
+  mixins_ = window.perMixins;
+}
 
 const sortBy = (arr, prop, desc) => {
   if (!(arr instanceof Array)) {
@@ -54,7 +61,8 @@ const sortBy = (arr, prop, desc) => {
 };
 
 export default {
-  name: "msb-special",
+  name: "msb-special-per",
+  mixins: mixins_,
   components: {
     specialItem,
     CellGroup
@@ -63,7 +71,8 @@ export default {
     return {
       dataArr: [],
       keyList: {},
-      spe: this.special
+      spe: this.special,
+      [this.name]: this.special
     };
   },
   props: {
@@ -78,6 +87,14 @@ export default {
     name: {
       type: String,
       default: "extend"
+    },
+    index: {
+      type: Number,
+      default: -1
+    },
+    module: {
+      type: String,
+      default: "被保人"
     }
   },
   created() {
@@ -103,6 +120,7 @@ export default {
     updateData() {
       this.dataArr = [];
       this.coverData(this.spe);
+      this[this.name] = this.spe;
       this.dataArr = sortBy(this.dataArr, "order", "asc");
     },
     hasVuale(obj) {

@@ -1,55 +1,55 @@
-import './styles/base.less';
+import "./styles/base.less";
 // import 'vue-multiselect/dist/vue-multiselect.min.css';
-import { Confirm, Alert, Toast, Notify, Loading } from './components/dialog';
-import { Layout } from './components/layout';
-import { Button, ButtonGroup } from './components/button';
-import { NavBar, NavBarBackIcon, NavBarNextIcon } from './components/navbar';
+import { Confirm, Alert, Toast, Notify, Loading } from "./components/dialog";
+import { Layout } from "./components/layout";
+import { Button, ButtonGroup } from "./components/button";
+import { NavBar, NavBarBackIcon, NavBarNextIcon } from "./components/navbar";
 import {
     CellItem,
     CellGroup,
     CellPanel,
     CellItemInput
-} from './components/cell';
-import { Switch } from './components/switch';
-import { GridsItem, GridsGroup } from './components/grids';
-import { Icons } from './components/icons';
-import { ListTheme, ListItem, ListOther } from './components/list';
-import { InfiniteScroll } from './components/infinitescroll';
-import { PullRefresh } from './components/pullrefresh';
-import { Badge } from './components/badge';
-import { TabBar, TabBarItem, TabBarOther } from './components/tabbar';
-import { Tab, TabPanel } from './components/tab';
-import { ActionSheet } from './components/actionsheet';
-import { SendCode } from './components/sendcode';
-import { Slider, SliderItem } from './components/slider';
-import { Spinner } from './components/spinner';
-import { CitySelect } from './components/cityselect';
-import { ProgressBar } from './components/progressbar';
-import { CountDown } from './components/countdown';
-import { Rate } from './components/rate';
-import { TextArea } from './components/textarea';
-import { Popup, PopupCity } from './components/popup';
-import { CountUp } from './components/countup';
-import { RollNotice, RollNoticeItem } from './components/rollnotice';
-import { Input } from './components/input';
-import { FlexBox, FlexBoxItem } from './components/flexbox';
-import { Radio, RadioGroup } from './components/radio';
-import { CheckBox, CheckBoxGroup } from './components/checkbox';
-import { BackTop } from './components/backtop';
-import { Accordion, AccordionItem } from './components/accordion';
-import { DateTime } from './components/datetime';
-import { LightBox, LightBoxImg, LightBoxTxt } from './components/lightbox';
-import { TimeLine, TimeLineItem } from './components/timeline';
-import { Step, StepItem } from './components/step';
-import { CheckList, CheckListItem } from './components/checklist';
-import { Search } from './components/search';
-import { Preview, PreviewHeader, PreviewItem } from './components/preview';
-import { Special, specialItem } from './components/special';
-import { CityInput } from './components/cityinput';
-import Multiselect from 'vue-multiselect';
+} from "./components/cell";
+import { Switch } from "./components/switch";
+import { GridsItem, GridsGroup } from "./components/grids";
+import { Icons } from "./components/icons";
+import { ListTheme, ListItem, ListOther } from "./components/list";
+import { InfiniteScroll } from "./components/infinitescroll";
+import { PullRefresh } from "./components/pullrefresh";
+import { Badge } from "./components/badge";
+import { TabBar, TabBarItem, TabBarOther } from "./components/tabbar";
+import { Tab, TabPanel } from "./components/tab";
+import { ActionSheet } from "./components/actionsheet";
+import { SendCode } from "./components/sendcode";
+import { Slider, SliderItem } from "./components/slider";
+import { Spinner } from "./components/spinner";
+import { CitySelect } from "./components/cityselect";
+import { ProgressBar } from "./components/progressbar";
+import { CountDown } from "./components/countdown";
+import { Rate } from "./components/rate";
+import { TextArea } from "./components/textarea";
+import { Popup, PopupCity } from "./components/popup";
+import { CountUp } from "./components/countup";
+import { RollNotice, RollNoticeItem } from "./components/rollnotice";
+import { Input } from "./components/input";
+import { FlexBox, FlexBoxItem } from "./components/flexbox";
+import { Radio, RadioGroup } from "./components/radio";
+import { CheckBox, CheckBoxGroup } from "./components/checkbox";
+import { BackTop } from "./components/backtop";
+import { Accordion, AccordionItem } from "./components/accordion";
+import { DateTime } from "./components/datetime";
+import { LightBox, LightBoxImg, LightBoxTxt } from "./components/lightbox";
+import { TimeLine, TimeLineItem } from "./components/timeline";
+import { Step, StepItem } from "./components/step";
+import { CheckList, CheckListItem } from "./components/checklist";
+import { Search } from "./components/search";
+import { Preview, PreviewHeader, PreviewItem } from "./components/preview";
+import { Special, specialItem, SpecialPer } from "./components/special";
+import { CityInput } from "./components/cityinput";
+import Multiselect from "vue-multiselect";
 
 window.document.addEventListener(
-    'touchstart',
+    "touchstart",
     function(event) {
         /* Do Nothing */
     },
@@ -61,6 +61,7 @@ const install = function(Vue) {
     Vue.component(CityInput.name, CityInput);
     Vue.component(Special.name, Special);
     Vue.component(specialItem.name, specialItem);
+    Vue.component(SpecialPer.name, SpecialPer);
     Vue.component(Layout.name, Layout);
     Vue.component(Button.name, Button);
     Vue.component(ButtonGroup.name, ButtonGroup);
@@ -135,7 +136,7 @@ const install = function(Vue) {
     };
 };
 
-if (typeof window !== 'undefined' && window.Vue) {
+if (typeof window !== "undefined" && window.Vue) {
     install(window.Vue);
 }
 

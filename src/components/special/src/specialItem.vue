@@ -17,7 +17,9 @@
         v-model="spe.value"
         :max="spe.length ? spe.length : '64'"
         :name="spe.key + index"
-        :placeholder="'请输入' + spe.label"
+        :placeholder="
+          spe.placeholder ? spe.placeholder : '请输入' + module + spe.label
+        "
         :data-rule="spe.rule"
         :showSuccessIcon="false"
       ></yd-input>
@@ -211,6 +213,10 @@ export default {
     index: [Number, String],
     special: {},
     objkey: {
+      default: ""
+    },
+    module: {
+      type: String,
       default: ""
     }
   }

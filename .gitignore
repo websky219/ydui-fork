@@ -4,4 +4,6 @@ node_modules/
 npm-debug.log
 /.idea
 /single.html
-/.history
+.history
+.history/
+dist/
