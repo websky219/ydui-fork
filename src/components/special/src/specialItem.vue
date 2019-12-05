@@ -151,8 +151,8 @@
       <yd-datetime
         :id="spe.key"
         slot="right"
-        :startDate="spe.startDate"
-        :endDate="spe.endDate"
+        :startDate="spe.start ? spe.start : spe.startDate"
+        :endDate="spe.end ? spe.end : spe.endDate"
         v-model="spe.value"
         :type="spe.type"
       ></yd-datetime>

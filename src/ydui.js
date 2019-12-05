@@ -44,9 +44,10 @@ import { Step, StepItem } from "./components/step";
 import { CheckList, CheckListItem } from "./components/checklist";
 import { Search } from "./components/search";
 import { Preview, PreviewHeader, PreviewItem } from "./components/preview";
-import { Special, specialItem, SpecialPer } from "./components/special";
+import { Special, specialItem } from "./components/special";
 import { CityInput } from "./components/cityinput";
 import Multiselect from "vue-multiselect";
+import CreateSpecialFn from "./components/special/src/specialFn";
 
 window.document.addEventListener(
     "touchstart",
@@ -61,7 +62,6 @@ const install = function(Vue) {
     Vue.component(CityInput.name, CityInput);
     Vue.component(Special.name, Special);
     Vue.component(specialItem.name, specialItem);
-    Vue.component(SpecialPer.name, SpecialPer);
     Vue.component(Layout.name, Layout);
     Vue.component(Button.name, Button);
     Vue.component(ButtonGroup.name, ButtonGroup);
@@ -134,6 +134,7 @@ const install = function(Vue) {
         notify: Notify,
         loading: Loading
     };
+    window.$createSpecialFn = CreateSpecialFn;
 };
 
 if (typeof window !== "undefined" && window.Vue) {
