@@ -17,6 +17,7 @@
         v-model="spe.value"
         :max="spe.length ? spe.length : '64'"
         :name="spe.key + index"
+        :autocomplete="true"
         :placeholder="
           spe.placeholder ? spe.placeholder : '请输入' + module + spe.label
         "
@@ -36,6 +37,7 @@
         {{ spe.label }}</span
       >
       <select
+        v-if="spe.readonly == undefined || !spe.readonly"
         :ref="spe.key"
         :id="spe.key"
         :name="spe.key + index"
@@ -49,6 +51,9 @@
           :key="index0"
         ></option>
       </select>
+      <span v-else slot="right" class="yd-cell-item-right">{{
+        findByValue(spe.value, "value", spe.list).text
+      }}</span>
       <span
         slot="suffix"
         v-if="spe.suffix"
@@ -62,6 +67,7 @@
         {{ spe.label }}</span
       >
       <select
+        v-if="spe.readonly == undefined || !spe.readonly"
         :ref="spe.key"
         :id="spe.key"
         :name="spe.key + index"
@@ -75,6 +81,9 @@
           :key="index0"
         ></option>
       </select>
+      <span v-else slot="right" class="yd-cell-item-right">{{
+        findByValue(spe.factorValue, "factorValue", spe.selectList).factorName
+      }}</span>
       <span
         slot="suffix"
         v-if="spe.suffix"
@@ -88,6 +97,7 @@
         {{ spe.label }}</span
       >
       <select
+        v-if="spe.readonly == undefined || !spe.readonly"
         :ref="spe.key"
         :id="spe.key"
         :name="spe.key + index"
@@ -101,6 +111,9 @@
           :key="index0"
         ></option>
       </select>
+      <span v-else slot="right" class="yd-cell-item-right">{{
+        findByValue(spe.factorValue, "factorValue", spe.selectList).factorName
+      }}</span>
       <span
         slot="suffix"
         v-if="spe.suffix"
@@ -151,6 +164,7 @@
       <yd-datetime
         :id="spe.key"
         slot="right"
+        :readonly="spe.readonly"
         :startDate="spe.start ? spe.start : spe.startDate"
         :endDate="spe.end ? spe.end : spe.endDate"
         v-model="spe.value"
@@ -183,6 +197,7 @@
 import CityInput from "../../cityinput/index.js";
 import Multiselect from "vue-multiselect";
 import { FlexBox, FlexBoxItem } from "../../flexbox/index";
+import { findByValue } from "../../../utils/assist";
 
 export default {
   name: "msb-special-item",
@@ -198,6 +213,7 @@ export default {
     };
   },
   methods: {
+    findByValue,
     selectTrack(spe) {
       if (spe.track) {
         return spe.track;

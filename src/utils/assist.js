@@ -183,6 +183,39 @@ const scrollTop = function(el, from = 0, to, duration = 500, callback) {
     scroll(from, to, step);
 };
 
+function find(array, predicate, context) {
+    if (typeof Array.prototype.find === "function") {
+        return array.find(predicate, context);
+    }
+
+    context = context || this;
+    var length = array.length;
+    var i;
+
+    if (typeof predicate !== "function") {
+        throw new TypeError(predicate + " is not a function");
+    }
+
+    for (i = 0; i < length; i++) {
+        if (predicate.call(context, array[i], i, array)) {
+            return array[i];
+        }
+    }
+}
+
+const findByValue = function(value, vkey, options) {
+    let element = null;
+    for (const key in options) {
+        if (options.hasOwnProperty(key)) {
+            element = options[key];
+            if (value == element[vkey]) {
+                return element;
+            }
+        }
+    }
+    return element;
+};
+
 export {
     pageScroll,
     preventScroll,
@@ -194,5 +227,6 @@ export {
     addClass,
     removeClass,
     scrollTop,
-    sortBy
+    sortBy,
+    findByValue
 };
